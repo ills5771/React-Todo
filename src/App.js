@@ -16,10 +16,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: { todos },
+      todos: todos,
       task: "",
       id: "",
-      completed: false
+      completed: false,
+      newTask: ""
     };
   }
   // you will need a place to store your state in this component.
