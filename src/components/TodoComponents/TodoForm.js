@@ -2,20 +2,16 @@ import React from "react";
 
 const TodoForm = props => {
   return (
-    <div className="todo-form">
+    <div onSubmit={props.addTodo} className="todo-form">
       <form className="form-group">
         <input
           type="text"
           name="task"
           placeholder="Add task"
-          value={props.newTask}
-          onChange={props.inputChangeHandler}
+          value={props.task}
+          onChange={props.handleChanges}
         />
-        <button
-          // onClick={props.addTodo}
-          type="submit"
-          className="btn btn-dark btn-sm"
-        >
+        <button type="submit" className="btn btn-dark btn-sm">
           Add
         </button>
         <button
