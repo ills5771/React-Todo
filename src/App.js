@@ -1,5 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
+
 const todos = [
   {
     task: "Organize Garage",
@@ -20,7 +22,7 @@ class App extends React.Component {
       task: "",
       id: "",
       completed: false,
-      newTask: ""
+      newTodo: ""
     };
   }
   // you will need a place to store your state in this component.
@@ -30,6 +32,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <TodoList todos={this.state.todos} />
+        <TodoForm />
       </div>
     );
   }
