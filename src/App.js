@@ -1,4 +1,5 @@
 import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
 const todos = [
   {
     task: "Organize Garage",
@@ -27,7 +28,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <h2> Todo App</h2>
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }
