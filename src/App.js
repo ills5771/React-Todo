@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./App.css";
 
 const todos = [
   {
@@ -21,7 +22,7 @@ class App extends React.Component {
       todos: todos,
       task: "",
       id: "",
-      completed: ""
+      completed: false
     };
   }
   addTodo = ev => {
@@ -29,13 +30,26 @@ class App extends React.Component {
     const newTodo = {
       task: this.state.task,
       id: Date.now(),
-      completed: this.state.completed
+      completed: false
     };
     this.setState({
       todos: [...this.state.todos, newTodo],
       task: "",
       id: "",
-      completed: ""
+      completed: false
+    });
+  };
+  toggleTodo = todoId => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todoId === todo.id) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+        return todo;
+      })
     });
   };
   handleChanges = ev => {
@@ -47,7 +61,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <TodoList todos={this.state.todos} />
+        <TodoList toggleTodo={this.toggleTodo} todos={this.state.todos} />
         <TodoForm
           id={this.state.id}
           completed={this.state.completed}
