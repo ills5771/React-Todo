@@ -34,9 +34,9 @@ class App extends React.Component {
     };
     this.setState({
       todos: [...this.state.todos, newTodo],
-      task: "",
-      id: "",
-      completed: false
+      task: ""
+      // id: "",
+      // completed: false
     });
   };
   toggleCompleted = todoId => {
