@@ -4,7 +4,9 @@ const Todo = props => {
   console.log("toggle clicked");
   return (
     <div className="todo">
-      <h4 onClick={() => props.toggleTodo(props.todo.id)}>{props.todo.task}</h4>
+      <h4 onClick={() => props.toggleCompleted(props.todo.id)}>
+        {props.todo.task}
+      </h4>
     </div>
   );
 };

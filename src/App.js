@@ -39,7 +39,7 @@ class App extends React.Component {
       completed: false
     });
   };
-  toggleTodo = todoId => {
+  toggleCompleted = todoId => {
     this.setState({
       todos: this.state.todos.map(todo => {
         if (todoId === todo.id) {
@@ -52,6 +52,7 @@ class App extends React.Component {
       })
     });
   };
+  clear;
   handleChanges = ev => {
     this.setState({
       [ev.target.name]: ev.target.value
@@ -61,7 +62,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <TodoList toggleTodo={this.toggleTodo} todos={this.state.todos} />
+        <TodoList
+          toggleCompleted={this.toggleCompleted}
+          todos={this.state.todos}
+        />
         <TodoForm
           id={this.state.id}
           completed={this.state.completed}
