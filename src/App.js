@@ -52,7 +52,13 @@ class App extends React.Component {
       })
     });
   };
-  clear;
+  clearCompleted = ev => {
+    ev.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    });
+  };
+
   handleChanges = ev => {
     this.setState({
       [ev.target.name]: ev.target.value
@@ -72,6 +78,7 @@ class App extends React.Component {
           task={this.state.task}
           handleChanges={this.handleChanges}
           addTodo={this.addTodo}
+          clearCompleted={this.clearCompleted}
         />
       </div>
     );

@@ -14,7 +14,11 @@ const TodoForm = props => {
         <button type="submit" className="btn btn-dark btn-sm">
           Add
         </button>
-        <button type="submit" className="btn btn-dark btn-sm">
+        <button
+          onClick={props.clearCompleted}
+          type="submit"
+          className="btn btn-dark btn-sm"
+        >
           Clear
         </button>
       </form>
